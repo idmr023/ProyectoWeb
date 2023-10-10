@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    width: 100%;
+    position: relative;
+}
+h1,h2,h3,h4,h5{
+    font-family: 'Montserrat', sans-serif;
+}
+p, a, td, th, form, input, button, div, span, i, iframe, canvas{
+    font-family: 'Poppins', sans-serif;
+    text-decoration: none;
+}
+hr{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    width: auto;
+}
+/*Variables*/
+:root{
+    --white: #fff;
+    --soft-grey: #cccc;
+    --soft-white: #f2f2f2;
+    --soft-green: #6EBFB5;
+    --black-green: #52948C;
+    --soft-red: #FFC7C7;
+    --black: #000;
+    }   
+    
+/*Menú*/
+
+.color-destacado {
+    color: #7C6A46;
+    /* Cambia el color a rojo (u otro color de tu elección) */
+}
+
+/*Footer*/
+.derechos {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #000000;
+    color: #7C6A46;
+}

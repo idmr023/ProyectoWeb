@@ -1,0 +1,135 @@
+DROP DATABASE IF EXISTS hotel_antares;
+CREATE DATABASE hotel_antares;
+USE hotel_antares;
+
+-- Crea la tabla 'habitacion'
+CREATE TABLE habitacion (
+    hab_id VARCHAR(4) PRIMARY KEY,
+    hab_num_dias INT,
+    hab_fech_reg DATE,
+    hab_fech_salida DATE,
+    hab_tipo_habitacion VARCHAR(50),
+    hab_precio INT,
+    hab_total FLOAT
+);
+
+-- Inserta 5 registros de ejemplo en la tabla 'habitacion'
+INSERT INTO habitacion (hab_id, hab_num_dias, hab_fech_reg, hab_fech_salida, hab_tipo_habitacion)
+VALUES
+    ('H001', 3, '2023-09-01', '2023-09-04', 'Suite'),
+    ('H002', 2, '2023-08-15', '2023-08-17', 'Estándar'),
+    ('H003', 5, '2023-09-01', '2023-09-06', 'Suite'),
+    ('H004', 4, '2023-09-01', '2023-09-05', 'Estándar'),
+    ('H005', 7, '2023-09-21', '2023-09-28', 'Suite');
+
+-- Crea la tabla 'clientes'
+CREATE TABLE clientes (
+    cli_dni INT(8) PRIMARY KEY,
+    cli_nombre VARCHAR(50),
+    cli_apellido VARCHAR(50),
+    cli_sexo VARCHAR(50),
+    cli_celular INT,
+    habitacion_id VARCHAR(4),
+    FOREIGN KEY (habitacion_id) REFERENCES habitacion(hab_id)
+);
+
+-- Inserta 5 registros de ejemplo en la tabla 'clientes'
+INSERT INTO clientes (cli_dni, cli_nombre, cli_apellido, cli_sexo, cli_celular, habitacion_id)
+VALUES
+    (12345678, 'Juan', 'Perez', 'Masculino', 5555555555, 'H001'),
+    (23456789, 'Maria', 'Lopez', 'Femenino', 6666666666, 'H002'),
+    (34567890, 'Carlos', 'Gomez', 'Masculino', 7777777777, 'H003'),
+    (45678901, 'Laura', 'Martinez', 'Femenino', 8888888888, 'H004'),
+    (56789012, 'Pedro', 'Rodriguez', 'Masculino', 9999999999, 'H005');
+
+-- Crea la tabla 'empleados'
+CREATE TABLE empleados (
+    id_emplea VARCHAR(8) PRIMARY KEY,
+    nombre VARCHAR(50),
+    apellido VARCHAR(50),
+    telefono INT,
+    cargo VARCHAR(30)
+);
+
+-- Inserta 5 registros de ejemplo en la tabla 'empleados'
+INSERT INTO empleados (id_emplea, nombre, apellido, telefono, cargo)
+VALUES
+    ('E001', 'Jose', 'Lopez', 5551112233, 'Gerente'),
+    ('E002', 'Ana', 'Martinez', 5554445566, 'Vendedor'),
+    ('E003', 'Carlos', 'Garcia', 5557778899, 'Cajero'),
+    ('E004', 'Laura', 'Fernandez', 5552223344, 'Vendedor'),
+    ('E005', 'Pedro', 'Perez', 5558889900, 'Cajero');
+
+CREATE TABLE transacciones (
+    transaccion_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_dni INT(8),
+    tipo_habitacion VARCHAR(50),
+    fecha_entrada DATE,
+    fecha_salida DATE,
+    monto_total INT,
+    fecha_transaccion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cliente_dni) REFERENCES clientes(cli_dni)
+);
+
+--Procedures
+
+DELIMITER //
+CREATE PROCEDURE calcularPrecio(
+    IN tipoHabitacion VARCHAR(50),
+    IN fechaEntrada DATE,
+    IN fechaSalida DATE,
+    OUT precioTotal INT
+)
+BEGIN
+    DECLARE precioPorNoche INT;
+    DECLARE numDias INT;
+    
+    -- Asignar el precio base según el tipo de habitación
+    CASE tipoHabitacion
+        WHEN 'Estándar' THEN
+            SET precioPorNoche = 20;
+        WHEN 'Suite' THEN
+            SET precioPorNoche = 40;
+        WHEN 'Deluxe' THEN
+            SET precioPorNoche = 60;
+        ELSE
+            SET precioPorNoche = 0;
+    END CASE;
+
+    -- Calcular el número de días de estancia
+    SET numDias = DATEDIFF(fechaSalida, fechaEntrada);
+
+    -- Calcular el precio total
+    SET precioTotal = precioPorNoche * numDias;
+END//
+DELIMITER ;
+
+
+--trigger
+
+DELIMITER //
+
+CREATE TRIGGER calcularPrecioTrigger AFTER INSERT ON habitacion
+FOR EACH ROW
+BEGIN
+    DECLARE precioTotal INT;
+    
+    -- Calcular el precio total utilizando el procedimiento almacenado
+    CALL calcularPrecio(NEW.hab_tipo_habitacion, NEW.hab_fech_reg, NEW.hab_fech_salida, precioTotal);
+    
+    -- Actualizar las columnas de precio y total en el nuevo registro
+    UPDATE habitacion
+    SET hab_precio = precioTotal, hab_total = precioTotal
+    WHERE hab_id = NEW.hab_id;
+END;
+
+//
+
+DELIMITER ;
+
+
+CREATE PROCEDURE SPVENTA(an INT)
+SELECT month(hab_fech_reg) mes, (hab_num_dias*hab_precio) precio_total
+FROM habitacion
+WHERE year(hab_fech_reg) = an
+GROUP BY month(hab_fech_reg);
