@@ -39,24 +39,28 @@
 
 ## Comandos Git Hub
 
-⚠️ Para poder hacer cualquier cambio a nuestro proyecto, primero debemos hacer ``` git pull ``` (actualizar el repositorio ante cualquier cambio eventual)
+Para subir por primer vez a un repositorio
+  ⚠️ Para poder hacer cualquier cambio a nuestro proyecto, primero debemos hacer ``` git pull ``` (actualizar el repositorio ante cualquier cambio eventual)
+  ⚠️ Para subir a un repositorio debemos entrar en la carpeta que se nos crea a la hora de clonar. Ya sea de forma manual o ``` cd (nombre de la carpeta) ``` 
+  
+  ![image]([mover])
 
-Para subir a un repositorio
-  ⚠️ Para subir a un repositorio debemos entrar en la carpeta que se nos crea a la hora de clonar.
-  ![image](https://github.com/idmr023/brrrr/assets/67611158/89c88c19-beab-4fd8-bd02-c96679b39f43)
 ```
 git add .
 git commit -m "Yatusabe"
 git branch -M main
-git remote add origin (url0)
+git remote add origin (url)
 git push -u origin main
 ```
-Para subir elementos específicos:
+
+Para subir archivos después de la primera vez
+
 ```
-git add (elemento1), (elemento2)
+git add . o git add (elemento1) (elemento2) (elemento3) ... (elementoN)
+git commit -m "Yatusabe"
+git push -u origin main
 ```
 
-Reemplazar 
 
 ### Errores
 
@@ -67,6 +71,7 @@ Reemplazar
 Solución:
   ```
   git remote rm origin
+git remote add origin (nueva url)
   ```
 <p align="right">(<a href="#readme-top">Subir al inicio</a>)</p>
 
@@ -87,3 +92,4 @@ Solución:
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/image.png
+[mover]: images/mover.png
