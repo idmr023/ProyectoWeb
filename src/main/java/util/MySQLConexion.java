@@ -1,10 +1,12 @@
+
 package util;
 import java.sql.*;
 public class MySQLConexion {
 	public static Connection getConexion(){ 
 		Connection con = null;
-		try { Class.forName("com.mysql.cj.jdbc.Driver"); 
-		String url = "jdbc:mysql://localhost/hotel_antares"; 
+		try { 
+                    Class.forName("com.mysql.cj.jdbc.Driver"); 
+		String url = "jdbc:mysql://localhost/bdhotelantares"; 
 		String usr = "root";
 		String psw = ""; 
 		con = DriverManager.getConnection(url,usr,psw); 
@@ -15,3 +17,4 @@ public class MySQLConexion {
 		return con; 
 		}
 }
+

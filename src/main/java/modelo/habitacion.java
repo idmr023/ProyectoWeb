@@ -1,67 +1,48 @@
 package modelo;
 
-import java.sql.Date;
-
-public class habitacion {
-    private String id_varchar;
-    private int num_dias;
-    private Date fec_ingreso;
-    private Date fec_salida;   
-    private String tipo_hab;
-    private double total;
+public class Habitacion {
+    private String hab_codigo;
+    private String hab_tipo;
+    private double hab_precio;
+    private String hab_estado;
     private int mes;
+    private double total;
     
     public String Lmes(){
         String meses[]={"","Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct","Nov","Dic"};
         return meses[mes];
     }
 
-    public String getId_varchar() {
-        return id_varchar;
+    public String getHab_codigo() {
+        return hab_codigo;
     }
 
-    public void setId_varchar(String id_varchar) {
-        this.id_varchar = id_varchar;
+    public void setHab_codigo(String hab_codigo) {
+        this.hab_codigo = hab_codigo;
     }
 
-    public int getNum_dias() {
-        return num_dias;
+    public String getHab_tipo() {
+        return hab_tipo;
     }
 
-    public void setNum_dias(int num_dias) {
-        this.num_dias = num_dias;
+    public void setHab_tipo(String hab_tipo) {
+        this.hab_tipo = hab_tipo;
     }
 
-    public Date getFec_ingreso() {
-        return fec_ingreso;
+    public double getHab_precio() {
+        return hab_precio;
     }
 
-    public void setFec_ingreso(Date fec_ingreso) {
-        this.fec_ingreso = fec_ingreso;
+    public void setHab_precio(double hab_precio) {
+        this.hab_precio = hab_precio;
     }
 
-    public Date getFec_salida() {
-        return fec_salida;
+    public String getHab_estado() {
+        return hab_estado;
     }
 
-    public void setFec_salida(Date fec_salida) {
-        this.fec_salida = fec_salida;
-    }
-
-    public String getTipo_hab() {
-        return tipo_hab;
-    }
-
-    public void setTipo_hab(String tipo_hab) {
-        this.tipo_hab = tipo_hab;
-    }
-
-    public double getTotal() {
-        return total;
-    }
-
-    public void setTotal(double total) {
-        this.total = total;
+    public void setHab_estado(String hab_estado) {
+        this.hab_estado = hab_estado;
     }
 
     public int getMes() {
@@ -71,6 +52,13 @@ public class habitacion {
     public void setMes(int mes) {
         this.mes = mes;
     }
-    
-    
+
+    public double getTotal() {
+        return total;
+    }
+
+    public void setTotal(double total) {
+        this.total = total;
+    }
+       
 }
