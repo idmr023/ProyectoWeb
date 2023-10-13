@@ -40,8 +40,10 @@
 ## Comandos Git Hub
 
 Para subir por primer vez a un repositorio
+  
   ⚠️ Para poder hacer cualquier cambio a nuestro proyecto, primero debemos hacer ``` git pull ``` (actualizar el repositorio ante cualquier cambio eventual)
-  ⚠️ Para subir a un repositorio debemos entrar en la carpeta que se nos crea a la hora de clonar. Ya sea de forma manual o ``` cd (nombre de la carpeta) ``` 
+  
+  ⚠️ Para subir a un repositorio debemos entrar en la carpeta que se nos crea a la hora de clonar. Ya sea de forma manual o ``` cd ProyectoWeb ``` 
   
   ![image][mover]
 
