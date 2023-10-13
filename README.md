@@ -66,7 +66,7 @@ git push -u origin main
 
 1. Git remote origin already exists
 
-![image]([https://github.com/idmr023/brrrr/assets/67611158/89c88c19-beab-4fd8-bd02-c96679b39f43](https://linuxhint.com/wp-content/uploads/2023/03/word-image-311050-1.png))
+![image]([https://github.com/idmr023/brrrr/assets/67611158/89c88c19-beab-4fd8-bd02-c96679b39f43](https://linuxhint.com/wp-content/uploads/2023/03/word-image-311050-1.png)])
 
 Solución:
   ```
@@ -93,3 +93,4 @@ git remote add origin (nueva url)
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/image.png
 [mover]: images/mover.png
+[already-exists]: https://linuxhint.com/wp-content/uploads/2023/03/word-image-311050-1.png
