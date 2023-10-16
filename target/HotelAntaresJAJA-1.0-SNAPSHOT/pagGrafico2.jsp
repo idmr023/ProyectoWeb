@@ -9,8 +9,8 @@
     <body>
     <center>
         <h2>Grafico de ventas</h2>
-        <form action="grafico" target="zona">
-            ingrese año :<input name="tan">
+        <form action="Control" target="zona">
+            ingrese año :<input name="opc">
             <br><input type="radio" name="tipo" value="bar" onclick="submit()">barra
             <input type="radio" name="tipo" value="pie" onclick="submit()">Circular
             <input type="radio" name="tipo" value="line" onclick="submit()">Lineal

@@ -278,7 +278,7 @@
                                 <div class="card-body">
                                      <form action="Grafico1.jsp" target="zona" class="">
                                         <div class="input-group mb-3 w-25">
-                                           <input type="text" class="form-control" placeholder="Ingrese el año" aria-label="Username" aria-describedby="basic-addon1" name="tan">
+                                           <input type="text" class="form-control" placeholder="Ingrese el año" aria-label="Username" aria-describedby="basic-addon1" name="opc">
                                         </div>
                                         
                                         <div class="form-group d-flex align-items-center justify-content-between">
@@ -312,9 +312,9 @@
                                 </div>
                                 <!-- Card Body -->
                                 <div class="card-body">
-                                     <form action="grafico" target="zona2" class="">
+                                     <form action="Control" target="zona2" class="">
                                         <div class="input-group mb-3 w-25">
-                                           <input type="text" class="form-control" placeholder="Ingrese el año" aria-label="Username" aria-describedby="basic-addon1" name="tan">
+                                           <input type="text" class="form-control" placeholder="Ingrese el año" aria-label="Username" aria-describedby="basic-addon1" name="opc">
                                         </div>
                                         
                                         <div class="form-group d-flex align-items-center justify-content-between">

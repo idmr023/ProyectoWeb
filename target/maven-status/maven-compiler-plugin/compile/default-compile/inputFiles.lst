@@ -3,7 +3,9 @@ C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\ja
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\controlador\grafico.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\Habitacion.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\Cliente.java
+C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\EnviarCorreo.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\util\SQLConexion.java
+C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\JCMail.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\controlador\Control.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\Alquiler.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\Pago.java
@@ -12,4 +14,5 @@ C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\ja
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\Persona.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\Servicio.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\PagoDetalle.java
+C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\modelo\SMTPAuthenticator.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\HotelAntaresJAJA\src\main\java\util\MySQLConexion.java

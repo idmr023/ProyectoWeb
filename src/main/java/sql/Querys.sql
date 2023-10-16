@@ -8,14 +8,15 @@ create table empleados(
     emp_apellido varchar(30),
     emp_nombre varchar(30),
     emp_sexo char(1),
+    emp_correo varchar(30),
     emp_celular varchar(15),
     emp_cargo varchar(30));
-
-insert into empleados values('U21204083', 'Bermudez', 'Diego', 'M', '970088165', 'Recepcionista');
-insert into empleados values('U21225065', 'Manrique', 'Ivan', 'M', '934584437', 'Recepcionista');
-insert into empleados values('U21200225', 'Occ', 'Mario', 'M', '953769439', 'Recepcionista');
-insert into empleados values('U21201266', 'Chaname', 'Cristhian', 'M', '900621989', 'Administrador');
     
+
+insert into empleados values('U21204083', 'Bermudez', 'Diego', 'M', 'pedro@utp.edu.pe', '970088165', 'Recepcionista');
+insert into empleados values('U21225065', 'Manrique', 'Ivan', 'M', 'u21225065@utp.edu.pe', '934584437', 'Recepcionista');
+insert into empleados values('U21200225', 'Occ', 'Mario', 'M', 'pedro@utp.edu.pe', '953769439', 'Recepcionista');
+insert into empleados values('U21201266', 'Chaname', 'Cristhian', 'M', 'pedro@utp.edu.pe', '900621989', 'Administrador');    
 
 create table clientes(
     cli_dni char(8) not null primary key,
@@ -221,13 +222,3 @@ select pa;
 end @@ 
 DELIMITER ;   
 
-//Procedimiento para gráficos
-
-use bdhotelantares;
-drop procedure if exists spventa;
-create procedure spventa(an int)
-    select month(pa_fecha) mes, pa_total total
-    from pagoDetalle pD join  pagos p
-    on pd.pa_codigo=p.pa_codigo
-    where year(pago_fecha)=an
-    group by month(pago_fecha);

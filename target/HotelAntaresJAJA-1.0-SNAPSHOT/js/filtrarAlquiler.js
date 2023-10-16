@@ -30,6 +30,10 @@ $(document).ready(function () {
                                     </thead>  
                                     <tbody>`;
             misDatos.forEach(midato => {
+                if(midato.alq_estado==="Finalizado")
+                    res="No disponible";
+                else
+                    res=`<a href="javascript:pasaSeleccion('${midato.alq_codigo}');"><img src="botones/Edit.gif" height="20" width="20" class="center-block"></a></a>`;
                 template += `  
                 <tr>  
                     <td>${midato.alq_codigo}</td>  
@@ -39,8 +43,7 @@ $(document).ready(function () {
                     <td>${midato.alq_fechaSalida}</td>
                     <td>${midato.emp_codigo}</td>
                     <td>${midato.alq_estado}</td>
-                    <td><a href="javascript:pasaSeleccion('${midato.alq_codigo}');">
-<img src="botones/Edit.gif" height="20" width="20" class="center-block"></a> 
+                    <td>${res}</td> 
                                 </tr>`;
 
             })

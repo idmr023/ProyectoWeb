@@ -36,8 +36,8 @@ $(document).ready(function () {
                     <td>${midato.nombre}</td> 
                     <td>${midato.sexo}</td> 
                     <td>${midato.celular}</td> 
-                    <td><a href="control?opc=2&nro=<%=x.getCli_dni()%>">Editar</td>
-                    <td><a href="control?opc=6&nro=<%=x.getCli_dni()%>">Eliminar</td>
+                    <td><a href="Control?opc=2&nro=<%=x.getCli_dni()%>">Editar</td>
+                    <td><a href="Control?opc=6&nro=<%=x.getCli_dni()%>">Eliminar</td>
                     <td><a href="javascript:pasaSeleccion('${midato.cli_dni}', '${midato.apellido}', 
 '${midato.nombre}', '${midato.sexo}', '${midato.celular}', '${midato.cli_num_dias}', '${midato.cli_fech_reg}', '${midato.cli_tipo_habitacion}');"> 
 </a> 

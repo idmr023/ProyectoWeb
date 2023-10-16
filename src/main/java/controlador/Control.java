@@ -3,14 +3,21 @@ package controlador;
 import com.google.gson.Gson;
 import dao.Negocio;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.sql.Date;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import modelo.*;
 import javax.servlet.http.HttpSession;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
 
 public class Control extends HttpServlet {
 
@@ -40,6 +47,16 @@ public class Control extends HttpServlet {
         if (op==8)filtrarAlq(request, response);
         if (op==9)buscarAlq(request, response);
         if (op==10)modificarAlq(request, response);
+        //Gráfico
+        /*
+        String tipo=request.getParameter("tipo");
+        OutputStream flujo=response.getOutputStream();
+        if(tipo.equals("pie"))
+        ChartUtilities.writeChartAsJPEG(flujo,torta(op), 700,500 );
+        if(tipo.equals("bar"))
+        ChartUtilities.writeChartAsJPEG(flujo,barra(op), 700,500 );
+        if(tipo.equals("line"))
+        ChartUtilities.writeChartAsJPEG(flujo,lineal(op), 700,500 );*/
 
     }
 
@@ -183,6 +200,35 @@ public class Control extends HttpServlet {
         }        
         listarAlq(request, response);
     }
+    
+    
+    JFreeChart torta(int an){
+         DefaultPieDataset ds=new DefaultPieDataset();
+         for(Habitacion x:obj.LisVenta(an)){
+             ds.setValue(x.Lmes(),x.getTotal());
+         }
+          //graficar en memoria
+        JFreeChart gf=ChartFactory.createPieChart3D("año "+an, ds);
+        return gf;
+      }
+        JFreeChart barra(int an){
+         DefaultCategoryDataset ds=new DefaultCategoryDataset();
+         for(Habitacion x:obj.LisVenta(an)){
+             ds.setValue(x.getTotal(),"venta",x.Lmes());
+         }
+          //graficar en memoria
+        JFreeChart gf=ChartFactory.createBarChart3D("año "+an, "mes", "venta", ds);
+        return gf;
+      }
+        JFreeChart lineal(int an){
+         DefaultCategoryDataset ds=new DefaultCategoryDataset();
+         for(Habitacion x:obj.LisVenta(an)){
+             ds.setValue(x.getTotal(),"venta",x.Lmes());
+         }
+          //graficar en memoria
+        JFreeChart gf=ChartFactory.createLineChart3D("año "+an, "mes", "venta", ds);
+        return gf;
+      }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

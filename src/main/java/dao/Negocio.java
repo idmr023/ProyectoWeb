@@ -3,7 +3,6 @@ package dao;
 import modelo.*;
 import java.sql.*;
 import java.util.*;
-import rutinas.Fechas;
 import util.MySQLConexion;
 
 public class Negocio {
@@ -511,7 +510,7 @@ public class Negocio {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
-    //Gráfico
+        //Gráfico
     public List<Habitacion> LisVenta(int an){
         List<Habitacion> lis=new ArrayList();
         Connection cn=MySQLConexion.getConexion();
