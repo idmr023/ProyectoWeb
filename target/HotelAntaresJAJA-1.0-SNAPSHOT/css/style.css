@@ -1,0 +1,76 @@
+/*Sección banner*/
+section.banner{
+    background: url(../img/video.png) center center no-repeat;
+    background-size: cover;
+    height: 600px;
+}
+
+.banner__texto{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #FAFAFA;
+    /* Color del texto */
+    background-color: transparent;
+    /* Fondo transparente */
+    padding-bottom: 20px;
+    /* Elimina el padding */
+}
+
+.banner__botones-login,
+.banner__botones-register{
+    font-weight: bold;
+    background-color: #7C6A46;
+    border: 0;
+}
+
+.banner__botones-login:hover,
+.banner__botones-register:hover {
+    background-color: rgba(122, 106, 70, 0.5); /* Cambia el último valor (0.5) para ajustar la transparencia */
+}
+
+section#contenedor_info{
+    border: 0;
+    max-width: 80%;
+}
+
+section.servicios{
+    text-align: center;
+    width: 90%;
+}
+
+/*Frm registarte*/
+
+.form-container{
+    position: absolute;
+    top: 300px;
+    right: 10px;
+    width: 320px;   
+}
+hr{
+    background-color: #fff;
+}
+.form-container form{
+    position: relative;
+    width: 100%;
+    background: linear-gradient(to top, rgba(0,0,0,0.8)50%,rgba(0,0,0,0.8)50%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+  }
+form input{
+    height: 35px;
+    background: transparent;
+    border-bottom: 1px solid #ff7200;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    color: #fff;
+    margin-top: 15px;
+}
+.form input:focus{
+    outline: none;
+}
