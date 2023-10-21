@@ -222,3 +222,14 @@ select pa;
 end @@ 
 DELIMITER ;   
 
+
+//Gráfico
+
+use bdhotelantares;
+drop procedure if exists spventa;
+create procedure spventa(an int)
+select month(pa_fecha) mes, sum(pa_total) total
+from pagos p join pagodetalle pd 
+on p.pa_codigo=pd.pa_codigo
+where year(pa_fecha)=an
+group by month(pa_fecha);

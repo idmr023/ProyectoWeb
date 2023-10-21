@@ -47,16 +47,19 @@ public class Control extends HttpServlet {
         if (op==8)filtrarAlq(request, response);
         if (op==9)buscarAlq(request, response);
         if (op==10)modificarAlq(request, response);
+        
         //Gráfico
-        /*
-        String tipo=request.getParameter("tipo");
-        OutputStream flujo=response.getOutputStream();
-        if(tipo.equals("pie"))
-        ChartUtilities.writeChartAsJPEG(flujo,torta(op), 700,500 );
-        if(tipo.equals("bar"))
-        ChartUtilities.writeChartAsJPEG(flujo,barra(op), 700,500 );
-        if(tipo.equals("line"))
-        ChartUtilities.writeChartAsJPEG(flujo,lineal(op), 700,500 );*/
+        if (op==11){
+            int year = Integer.parseInt(request.getParameter("tan"));
+            String tipo=request.getParameter("tipo");
+            OutputStream flujo=response.getOutputStream();
+            if(tipo.equals("pie"))
+            ChartUtilities.writeChartAsJPEG(flujo,torta(year), 700,500 );
+            if(tipo.equals("bar"))
+            ChartUtilities.writeChartAsJPEG(flujo,barra(year), 700,500 );
+            if(tipo.equals("line"))
+            ChartUtilities.writeChartAsJPEG(flujo,lineal(year), 700,500 );
+        }
 
     }
 
