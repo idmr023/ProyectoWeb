@@ -1,17 +1,16 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="modelo.*, rutinas.Fechas, dao.Negocio"%>
+<%@page import="modelo.*, rutinas.Fechas, dao.*"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>HA - Agregar Alquiler</title>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrapValidator.css" rel="stylesheet" type="text/css"/>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="js/bootstrapValidator.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="./css/estilos_generales.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
+    
+    <%@ include file="./layout/menu.jsp" %>
 
     <body>
         <%
@@ -19,8 +18,9 @@
             String minIngreso = f.minFechaIngreso();
             String minSalida = f.minFechaSalida();
 
-            Negocio obj = new Negocio();
-
+            daoEmpleados emp = new daoEmpleados();
+            daoHabitacion hab = new daoHabitacion();
+            
             String tipo = "";
 
             if (request.getParameter("cbTipo") != null) {
@@ -48,7 +48,7 @@
                     </select>
                 </div>
             </form><!--formulario tipo habitacion--> 
-            <form action="Control" id="formRegAlquiler">
+            <form action="SrvtlAlquiler" id="formRegAlquiler">
                 <div class="container__alquiler">
                     <input type="hidden" name="opc" value="6">
                     <div class="form-group">
@@ -56,7 +56,7 @@
                         <select class="form-control" id="id_habitacion" name="cbHabitacion" required>
                             <option disabled selected>Seleccionar</option>
                             <%
-                                for (Habitacion x : obj.listarHabDispo()) {
+                                for (Habitacion x : hab.listarHabDispo()) {
                                     if (x.getHab_tipo().equals(tipo)) {
                                         out.print("<option value=" + x.getHab_codigo() + ">" + x.getHab_codigo() + "</option>");
                                     }
@@ -77,9 +77,9 @@
                         <select class="form-control" id="id_empleado" name="cbEmpleado" required>
                             <option disabled selected>Seleccionar</option>
                             <% 
-                                for(Empleado x:obj.listarEmp()){
-                                    String emp = x.getEmp_codigo() + " - " + x.nomApe();
-                                    out.print("<option value="+x.getEmp_codigo()+">"+ emp +"</option>");
+                                for(Empleado x:emp.listarEmp()){
+                                    String empleado = x.getEmp_codigo() + " - " + x.nomApe();
+                                    out.print("<option value="+x.getEmp_codigo()+">"+ empleado +"</option>");
                                 }
                             %>
                         </select>
@@ -183,5 +183,7 @@
                 });
             });
         </script>
+        
     </body>
+    <%@ include file="./layout/footer.jsp" %>
 </html>

@@ -8,11 +8,9 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
         <link href="css/adminlte.min.css" rel="stylesheet" type="text/css"/>
-        <link rel="stylesheet"
-              href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
         <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="js/bootstrapValidator.js" type="text/javascript"></script>
     </head>
     
     
@@ -25,7 +23,7 @@
         <div class="container">
             <h1><center>Editar Información</center></h1>
 
-            <form action="Control" method="post" id="formEdit">
+            <form action="SrvtlCliente" method="post" id="formEdit">
                 <input type="hidden" name="opc" value="3">
                 <div class="container__cliente">
                     <h3>Datos del cliente</h3>
@@ -60,6 +58,9 @@
             </form>
         </div>
 
+        
+    <%@ include file="./layout/footer.jsp" %>
+    
     </body>
 
     <script type="text/javascript">
@@ -127,4 +128,6 @@
             });
         });
     </script>
+    
+    
 </html>

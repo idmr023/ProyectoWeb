@@ -1,5 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="modelo.*, dao.Negocio, rutinas.Fechas" %>
+<%@page import="modelo.*, dao.*, rutinas.Fechas" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -11,10 +11,12 @@
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
         <script src="js/bootstrapValidator.js" type="text/javascript"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     </head>
     <body>
         <%
-            Negocio obj = new Negocio();
+            daoAlquiler obj = new daoAlquiler();
             Alquiler a = (Alquiler) request.getAttribute("alquiler");
             String cod = request.getParameter("codigo");
 
@@ -23,7 +25,7 @@
         %>
         <h2>Modificar Alquiler</h2>
         <div class="container">
-            <form action="Control" id="formModAlquiler">
+            <form action="SrvtlAlquiler" id="formModAlquiler">
                 <input type="hidden" name="opc" value="10">
                 <div class="form-group">
                     <label class="control-label" for="id_codigo">Codigo</label>

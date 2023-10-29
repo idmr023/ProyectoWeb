@@ -15,6 +15,6 @@ public class MySQLConexion {
 		{ System.out.println("No hay Driver!!"); } 
 		catch (SQLException ex) { System.out.println("Error con la BD "); }
 		return con; 
-		}
+            }
 }
 

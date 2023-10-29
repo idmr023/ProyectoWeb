@@ -1,11 +1,13 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import="modelo.*,java.util.*,dao.Negocio" %>
+<%@page import="modelo.*,java.util.*,dao.*" %>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>HA - Listado de Alquileres</title>        
         <link href="css/adminlte.min.css" rel="stylesheet" type="text/css"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/estilos_generales.css">
     </head>
     
     
@@ -61,11 +63,13 @@
                     if(a.getAlq_estado().equals("Finalizado")){
                         out.print("<td>No Disponible");
                     }else{
-                        out.print("<td><a href="+"Control?opc=9&cod="+a.getAlq_codigo()+"><img src="+"botones/Edit.gif"+" height="+"20"+" width="+"20"+" class="+"center-block"+"></a>");
+                        out.print("<td><a href="+"SrvtlAlquiler?opc=9&cod="+a.getAlq_codigo()+"><img src="+"botones/Edit.gif"+" height="+"20"+" width="+"20"+" class="+"center-block"+"></a>");
                     }    
                 }
             %>    
         </table>
     </center>    
+        
+            <%@ include file="./layout/footer.jsp" %>
     </body>
 </html>

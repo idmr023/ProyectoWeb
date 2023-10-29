@@ -41,15 +41,15 @@
         <script>
             
             function pasaSeleccion(nro) {
-                location ="Control?opc=2&nro=" + nro;
+                location ="SrvtlCliente?opc=2&nro=" + nro;
 
                 
             }
             function pasaSeleccion2(nro) {
-                location ="Control?opc=4&nro=" + nro;
+                location ="SrvtlCliente?opc=4&nro=" + nro;
                 
             }
         </script>
-        
+                    <%@ include file="./layout/footer.jsp" %>
     </body>
 </html>

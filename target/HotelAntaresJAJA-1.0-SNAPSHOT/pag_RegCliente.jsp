@@ -5,12 +5,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>JSP Page</title>
-        <link href="css/bootstrap.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrap-theme.css" rel="stylesheet" type="text/css"/>
-        <link href="css/bootstrapValidator.css" rel="stylesheet" type="text/css"/>
-        <script src="js/bootstrap.min.js" type="text/javascript"></script>
         <script src="js/jquery-1.10.2.min.js" type="text/javascript"></script>
-        <script src="js/bootstrapValidator.js" type="text/javascript"></script>
+        <link rel="stylesheet" href="./css/estilos_generales.css">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     </head>
 
     <%@ include file="./layout/menu.jsp" %>
@@ -19,7 +16,7 @@
         <div class="container">
             <h1><center>Registro</center></h1>
 
-            <form action="Control" method="post" id="formRegCli">
+            <form action="SrvtlCliente" method="post" id="formRegCli">
                 <input type="hidden" name="opc" value="1">
                 <div class="container__cliente">
                     <h3>Datos del cliente</h3>
@@ -37,7 +34,7 @@
                     </div>
                     <div class="form-group">
                         <label class="control-label" for="id_sexo">Sexo</label>
-                        <select class="form-control" id="id_sexo" name="cbSexo" required>
+                        <select class="form-control" id="id_sexo" name="genero" required>
                             <option disabled selected>Seleccionar</option>
                             <option value="M">Masculino</option>
                             <option value="F">Femenino</option>
@@ -53,6 +50,9 @@
                 </div><!-- boton -->
             </form>
         </div>
+        
+        
+            <%@ include file="./layout/footer.jsp" %>
 
     </body>
 

@@ -9,7 +9,7 @@ $(document).ready(function () {
 
     function listado(consulta) {
         opc = "5";
-        $.get("Control", {opc, consulta}, (response) => {
+        $.get("SrvtlCliente", {opc, consulta}, (response) => {
             const misDatos = JSON.parse(response);//recuperar la informacion q envio el controlador  
             let template = "";
             console.log(misDatos);

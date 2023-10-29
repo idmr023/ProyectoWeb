@@ -7,7 +7,7 @@
     </head>
     <body>
         <div class="derechos">
-            <p>Copyright©2022Informatica Studios. All right reserved</p>
+            <p>Copyright©2022 Hotel Antares. All right reserved</p>
             <p>Privacy Policy Terms and conditions</p>
         </div>
     </body>
