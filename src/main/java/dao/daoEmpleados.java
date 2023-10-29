@@ -5,7 +5,7 @@ import java.sql.*;
 import java.util.*;
 import util.MySQLConexion;
 
-public class daoEmpleados implements Validar{
+public class daoEmpleados implements SE_Validar{
 
     //PARA OBTENER EL LISTADO EMPLEADOS
     public List<Empleado> listarEmp() {

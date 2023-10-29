@@ -10,7 +10,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
-import modelo.Habitacion;
+import modelo.habitacion;
 import util.MySQLConexion;
 
 /**
@@ -20,15 +20,15 @@ import util.MySQLConexion;
 public class daoHabitacion {
     
     //PARA OBTENER EL LISTADO DE TODAS LAS HABITACIONES
-    public List<Habitacion> listarHab() {
-        List<Habitacion> lista = new ArrayList();
+    public List<habitacion> listarHab() {
+        List<habitacion> lista = new ArrayList();
         Connection cn = MySQLConexion.getConexion();
         try {
             String sql = "select * from habitaciones";
             PreparedStatement st = cn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Habitacion h = new Habitacion();
+                habitacion h = new habitacion();
                 h.setHab_codigo(rs.getString(1));
                 h.setHab_tipo(rs.getString(2));
                 h.setHab_estado(rs.getString(3));
@@ -59,15 +59,15 @@ public class daoHabitacion {
     }
 
     //PARA OBTENER EL LISTADO DE HABITACIONES DISPONIBLES
-    public List<Habitacion> listarHabDispo() {
-        List<Habitacion> lista = new ArrayList();
+    public List<habitacion> listarHabDispo() {
+        List<habitacion> lista = new ArrayList();
         Connection cn = MySQLConexion.getConexion();
         String sql = "select * from habitaciones where hab_estado='Disponible'";
         try {
             PreparedStatement st = cn.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                Habitacion h = new Habitacion();
+                habitacion h = new habitacion();
                 h.setHab_codigo(rs.getString(1));
                 h.setHab_tipo(rs.getString(2));
                 h.setHab_estado(rs.getString(3));
@@ -80,8 +80,8 @@ public class daoHabitacion {
     }
 
     //PARA OBTENER UNA HABITACION POR CODIGO
-    public Habitacion buscarHabCod(String cod) {
-        Habitacion h = null;
+    public habitacion buscarHabCod(String cod) {
+        habitacion h = null;
         Connection cn = MySQLConexion.getConexion();
         try {
             String sql = "select * from habitaciones where hab_codigo=?";
@@ -89,7 +89,7 @@ public class daoHabitacion {
             st.setString(1, cod);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                h = new Habitacion();
+                h = new habitacion();
                 h.setHab_codigo(rs.getString(1));
                 h.setHab_tipo(rs.getString(2));
                 h.setHab_estado(rs.getString(3));

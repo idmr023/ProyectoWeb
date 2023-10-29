@@ -7,7 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Habitacion;
+import modelo.habitacion;
 import org.jfree.chart.*;
 import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
@@ -35,7 +35,7 @@ public class SrvtlGrafico extends HttpServlet {
     
     JFreeChart torta(int an){
          DefaultPieDataset ds=new DefaultPieDataset();
-         for(Habitacion x:dGraf.LisVenta(an)){
+         for(habitacion x:dGraf.LisVenta(an)){
              ds.setValue(x.Lmes(),x.getTotal());
          }
           //graficar en memoria
@@ -44,7 +44,7 @@ public class SrvtlGrafico extends HttpServlet {
       }
         JFreeChart barra(int an){
          DefaultCategoryDataset ds=new DefaultCategoryDataset();
-         for(Habitacion x:dGraf.LisVenta(an)){
+         for(habitacion x:dGraf.LisVenta(an)){
              ds.setValue(x.getTotal(),"venta",x.Lmes());
          }
           //graficar en memoria
@@ -53,7 +53,7 @@ public class SrvtlGrafico extends HttpServlet {
       }
         JFreeChart lineal(int an){
          DefaultCategoryDataset ds=new DefaultCategoryDataset();
-         for(Habitacion x:dGraf.LisVenta(an)){
+         for(habitacion x:dGraf.LisVenta(an)){
              ds.setValue(x.getTotal(),"venta",x.Lmes());
          }
           //graficar en memoria

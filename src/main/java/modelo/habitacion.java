@@ -1,6 +1,6 @@
 package modelo;
 
-public class Habitacion {
+public class habitacion {
     private String hab_codigo;
     private String hab_tipo;
     private double hab_precio;

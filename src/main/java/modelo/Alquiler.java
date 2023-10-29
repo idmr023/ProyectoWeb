@@ -1,6 +1,6 @@
 package modelo;
 
-public class Alquiler extends Habitacion {
+public class Alquiler extends habitacion {
     private String alq_codigo;
     private String cli_dni;
     private String alq_fechaIngreso;

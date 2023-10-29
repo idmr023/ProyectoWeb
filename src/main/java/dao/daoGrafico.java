@@ -7,8 +7,8 @@ import util.*;
 
 public class daoGrafico {
 
-    public List<Habitacion> LisVenta(int an){
-        List<Habitacion> lis=new ArrayList();
+    public List<habitacion> LisVenta(int an){
+        List<habitacion> lis=new ArrayList();
         Connection cn=MySQLConexion.getConexion();
         try{
          String sql="{call spventa(?)}";   
@@ -16,7 +16,7 @@ public class daoGrafico {
          st.setInt(1, an);
          ResultSet rs=st.executeQuery();
          while(rs.next()){
-           Habitacion p=new Habitacion();
+           habitacion p=new habitacion();
            p.setMes(rs.getInt(1));
            p.setTotal(rs.getDouble(2));
            lis.add(p);

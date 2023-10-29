@@ -3,12 +3,11 @@ C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\ja
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Alquiler.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\dao\daoHabitacion.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\util\SQLConexion.java
-C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\controlador\Control.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\util\MySQLConexion.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\dao\daoPagos.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\PagoDetalle.java
+C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\SE_Validar.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\rutinas\Fechas.java
-C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Validar.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\controlador\SrvtlLogin.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Cliente.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Empleado.java
@@ -16,9 +15,10 @@ C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\ja
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\SendEmail.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\dao\daoCliente.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\dao\daoEmpleados.java
-C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Habitacion.java
+C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\habitacion.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Servicio.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\controlador\SrvtlGrafico.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\modelo\Persona.java
+C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\controlador\SrvltGrafico.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\controlador\SrvtlAlquiler.java
 C:\Users\idmr_\OneDrive\Documentos\NetBeansProjects\ProyectoWeb-main\src\main\java\controlador\SrvtlCliente.java
