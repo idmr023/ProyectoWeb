@@ -77,9 +77,13 @@ git remote add origin (nueva url)
   ```
 <p align="right">(<a href="#readme-top">Subir al inicio</a>)</p>
 
-## Cosas Pendientes
+## Actualizaciones
 
-- [ ] Fusionar todo en un solo proyecto
+- Parte de habitaciones agregado
+- Código QR funcional
+- BD actualizada con el nuevo procedure y una modificación en clientes
+- ChatBot de ayuda creado con el motor de ChatGPT.
+- A cada usuario que se agregue se le genera una imagen de acuerdo a sus iniciales (pagListarClientes.html)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
