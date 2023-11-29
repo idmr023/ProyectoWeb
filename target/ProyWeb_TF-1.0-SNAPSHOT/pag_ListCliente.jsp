@@ -16,7 +16,7 @@
     </head>
     
     <%@ include file="./layout/menu.jsp" %>
-
+    
     <body>
 
         <%
@@ -38,21 +38,25 @@
                             <th scope="col">Nombre</th>
                             <th scope="col">Sexo</th>
                             <th scope="col">Celular</th>
+                            <th scope="col">Foto de perfil</th>
                             <th scope="col">Editar</th>
                             <th scope="col">Modificar</th>
 
                         </tr>
                     </thead>
 
-
                     <tbody>        
                         <%
                             for (Cliente x : obj.listarCli()) {
 
-                                out.print("<tr><td>" + x.getCli_dni() + "<td>" + x.getApellido() + "<td>" + x.getNombre() + "<td>" + x.getSexo() + "<td>" + x.getCelular()
-                                );
-
+                                out.print("<tr><td>" + x.getCli_dni() + "<td>" + x.getApellido() + 
+                                            "<td>" + x.getNombre() + "<td>" + x.getSexo() + "<td>" + x.getCelular() + 
+                                            "<td><img src='" + x.getUrl_foto() + "'/></td>"
+                                        
+                                        );
                         %>
+                                           
+                    <td><a href="SrvtlCliente?opc=6&dni=<%=x.getCli_dni()%>" class="btn btn-success">Genera Código QR</a></td>
                     <td><a href="SrvtlCliente?opc=2&nro=<%=x.getCli_dni()%>">Editar</td>
                     <td><a href="SrvtlCliente?opc=4&nro=<%=x.getCli_dni()%>">Eliminar</td>
 

@@ -20,6 +20,14 @@
         <servlet-name>SrvtlAlquiler</servlet-name>
         <servlet-class>controlador.SrvtlAlquiler</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SrvtlCodigoQR</servlet-name>
+        <servlet-class>controlador.SrvtlCodigoQR</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Srvlt1</servlet-name>
+        <servlet-class>controlador.Srvlt1</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>SrvltGrafico</servlet-name>
         <url-pattern>/SrvltGrafico</url-pattern>
@@ -39,6 +47,14 @@
     <servlet-mapping>
         <servlet-name>SrvtlAlquiler</servlet-name>
         <url-pattern>/SrvtlAlquiler</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SrvtlCodigoQR</servlet-name>
+        <url-pattern>/SrvtlCodigoQR</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Srvlt1</servlet-name>
+        <url-pattern>/Srvlt1</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

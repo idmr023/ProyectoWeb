@@ -1,23 +1,43 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.Cliente;
 import util.MySQLConexion;
 
-/**
- *
- * @author idmr_
- */
 public class daoCliente {
-        //PARA OBTENER LA LISTA DE CLIENTES
+    
+    public String nom_cli(String nombre) {
+        String c = null;
+        Connection cn = MySQLConexion.getConexion();
+        try {
+            String sql = "SELECT cli_nombre FROM clientes WHERE cli_nombre =?";
+            PreparedStatement st = cn.prepareStatement(sql);
+            st.setString(1, nombre);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                // Ahora, simplemente obtenemos el nombre del cliente como String
+                c = rs.getString("cli_nombre");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (cn != null) {
+                    cn.close();
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return c;
+    }
+
+    //PARA OBTENER LA LISTA DE CLIENTES
     public List<Cliente> listarCli() {
         List<Cliente> lista = new ArrayList();
         Connection cn = MySQLConexion.getConexion();
@@ -32,6 +52,8 @@ public class daoCliente {
                 c.setNombre(rs.getString(3));
                 c.setSexo(rs.getString(4));
                 c.setCelular(rs.getString(5));
+                c.setUrl_foto(rs.getString(6));
+                
                 lista.add(c);
             }
         } catch (Exception ex) {
@@ -39,21 +61,27 @@ public class daoCliente {
         }
         return lista;
     }
-
+    
     //PARA AGREGAR UN CLIENTE
     public void agregarCli(Cliente c) {
         Connection cn = MySQLConexion.getConexion();
+                
         try {
-            String sql = "insert into clientes values(?,?,?,?,?)";
+            String sql = "insert into clientes values(?,?,?,?,?,?)";
             PreparedStatement st = cn.prepareStatement(sql);
             st.setString(1, c.getCli_dni());
             st.setString(2, c.getApellido());
             st.setString(3, c.getNombre());
             st.setString(4, c.getSexo());
             st.setString(5, c.getCelular());
-            st.executeUpdate();
+            st.setString(6, c.getUrl_foto());
+            
+            int filasAfectadas = st.executeUpdate();
+            if (filasAfectadas == 0) {
+                throw new RuntimeException("No se pudo insertar el cliente");
+            }
         } catch (Exception ex) {
-            ex.printStackTrace();
+            throw new RuntimeException("Error al agregar cliente", ex);
         }
     }
 

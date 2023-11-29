@@ -7,6 +7,16 @@ public class habitacion {
     private String hab_estado;
     private int mes;
     private double total;
+
+    public habitacion() {
+    }
+
+    public habitacion(String hab_codigo, String hab_tipo, String hab_estado) {
+        this.hab_codigo = hab_codigo;
+        this.hab_tipo = hab_tipo;
+        this.hab_estado = hab_estado;
+    }
+    
     
     public String Lmes(){
         String meses[]={"","Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Set","Oct","Nov","Dic"};

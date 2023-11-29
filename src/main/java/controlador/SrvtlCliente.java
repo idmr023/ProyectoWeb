@@ -5,12 +5,13 @@ import dao.daoCliente;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import modelo.Cliente;
+import modelo.*;
 
 public class SrvtlCliente extends HttpServlet {
 
     daoCliente dCli = new daoCliente();
     Cliente c = new Cliente();
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
@@ -21,18 +22,22 @@ public class SrvtlCliente extends HttpServlet {
         if (op == 3) actualizarCli(request, response);
         if (op == 4) EliminarCli(request, response);
         if (op == 5) flitrarCli(request, response);
+        if (op == 6) grabar(request, response);
     }
     
     protected void agregarCli(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
-
+        
+        String clientName = dCli.nom_cli(request.getParameter("nombre"));
+        String avatarUrl = "https://ui-avatars.com/api/?name=" + clientName;
+        
         c.setCli_dni(request.getParameter("dni"));
         c.setApellido(request.getParameter("apellido"));
         c.setNombre(request.getParameter("nombre"));
         c.setSexo(request.getParameter("genero"));
         c.setCelular(request.getParameter("celular"));
-
+        c.setUrl_foto(avatarUrl);
+        
         dCli.agregarCli(c);
 
         String pag = "/pag_ListCliente.jsp";
@@ -85,6 +90,15 @@ public class SrvtlCliente extends HttpServlet {
         request.getRequestDispatcher(pag).forward(request, response);
 
     }
+    
+    protected void grabar(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        HttpSession ses = request.getSession();
+        ses.setAttribute("cliente", c);
+        Cliente cli = (Cliente) ses.getAttribute("cliente");
+        String cad="DNI:"+cli.getCli_dni()+"<br/> Apellido :"+cli.getApellido()+"Nombre" + cli.getNombre();
+        response.sendRedirect("SrvtlCodigoQR?texto="+cad); 
+  }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
     /**

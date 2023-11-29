@@ -8,6 +8,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import modelo.habitacion;
@@ -41,14 +42,14 @@ public class daoHabitacion {
     }
 
     //PARA AGREGAR UNA HABITACION
-    public String agregarHab(String tipo, String estado) {
+    public String agregarHab(habitacion habi) {
         Connection cn = MySQLConexion.getConexion();
         String hab = "";
         try {
             String sql = "{call habAgregar(?,?)}";
             CallableStatement st = cn.prepareCall(sql);
-            st.setString(1, tipo);
-            st.setString(2, estado);
+            st.setString(1, habi.getHab_tipo());
+            st.setString(2, habi.getHab_estado());
             ResultSet rs = st.executeQuery();
             rs.next(); //Para leer el numero de habitacion
             hab = rs.getString(1); //Para grabar el numero de habitacion
@@ -143,18 +144,24 @@ public class daoHabitacion {
         }
     }
 
-    /*
-    //PARA OCUPAR UNA HABITACION
-    public void OcuparHab(String cod){
-        Connection cn=MySQLConexion.getConexion();
-        try{
-            String sql="update habitaciones set hab_estado='Ocupada' where hab_codigo=?";
-            PreparedStatement st=cn.prepareStatement(sql);
-            st.setString(1,cod);
-            st.executeUpdate();
-        }catch(Exception ex){
+    public List<habitacion> filtraHabitacion(String cad) {
+        List<habitacion> lista = new ArrayList();
+        String sql = "select hab_codigo, hab_tipo,hab_estado from habitaciones where hab_codigo like ?";
+        try {
+            PreparedStatement st = MySQLConexion.getConexion().prepareStatement(sql);
+            st.setString(1, cad + "%");
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                habitacion h = new habitacion(
+                        rs.getString(1),
+                        rs.getString(2),
+                        rs.getString(3)
+                );
+                lista.add(h);
+            }
+        } catch (SQLException ex) {
             ex.printStackTrace();
         }
+        return lista;
     }
-     */
 }

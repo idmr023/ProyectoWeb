@@ -22,17 +22,19 @@ create table clientes(
     cli_apellido varchar(30),
     cli_nombre varchar(30),
     cli_sexo char(1),
-    cli_celular varchar(15));
+    cli_celular varchar(15),
+    cli_fotPefil varchar(300)
+    );
     
-insert into clientes values('17458522', 'Rios', 'Janet', 'F', '952487587');
-insert into clientes values('17654785', 'Lizarraga', 'Alejandra', 'F', '914789852');
-insert into clientes values('18547475', 'Lopez', 'Diana', 'F', '987885745');
-insert into clientes values('60457845', 'Perez', 'Ernesto', 'M', '925478855');
-insert into clientes values('65898589', 'Hurtado', 'Maria', 'F', '987180625');
-insert into clientes values('68957845', 'Velasquez', 'Israel', 'M', '988741589');
-insert into clientes values('70510917', 'Chaname' , 'Renato', 'M', '980523566');
-insert into clientes values('70510918', 'Chaname' , 'Cristhian', 'M', '900621989');
-insert into clientes values('74589685', 'Vasquez' , 'Jhayr', 'M', '990852745');
+insert into clientes values('17458522', 'Rios', 'Janet', 'F', '952487587', 'https://ui-avatars.com/api/?name=Janet');
+insert into clientes values('17654785', 'Lizarraga', 'Alejandra', 'F', '914789852', '');
+insert into clientes values('18547475', 'Lopez', 'Diana', 'F', '987885745', '');
+insert into clientes values('60457845', 'Perez', 'Ernesto', 'M', '925478855', '');
+insert into clientes values('65898589', 'Hurtado', 'Maria', 'F', '987180625', '');
+insert into clientes values('68957845', 'Velasquez', 'Israel', 'M', '988741589', '');
+insert into clientes values('70510917', 'Chaname' , 'Renato', 'M', '980523566', '');
+insert into clientes values('70510918', 'Chaname' , 'Cristhian', 'M', '900621989', '');
+insert into clientes values('74589685', 'Vasquez' , 'Jhayr', 'M', '990852745', '');
 
 create table habitaciones(
     hab_codigo char(4) not null primary key,
@@ -199,12 +201,13 @@ CREATE PROCEDURE bdhotelantares.habAgregar
 begin
 declare cuenta int;
 declare hab char(4);
-select right(max(hab_numero),3)+1 into cuenta from habitaciones;
-set hab=concat('H',cuenta);
-insert into habitaciones values(hab,tipo,estado);
+select right(max(hab_codigo),3)+1 into cuenta from habitaciones;
+set hab=concat('H',LPAD(cuenta, 3, '0'));
+insert into habitaciones (hab_codigo, hab_tipo, hab_estado)
+values(hab,tipo,estado);
 select hab;
-end @@ 
-DELIMITER ;  
+end
+DELIMITER ;    
 
 //PROCEDIMIENTO PARA AGREGAR UN NUEVO PAGO
 DELIMITER @@

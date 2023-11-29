@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="./css/estilos_generales.css">
     <title>Reportes - Hostal Antares</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.botpress.cloud/webchat/v1/inject.js"></script>
+    <script src="https://mediafiles.botpress.cloud/c4eb3145-72c1-427c-ac4b-476536aedc9e/webchat/config.js" defer></script>
     
 </head>
 

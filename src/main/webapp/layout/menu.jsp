@@ -42,7 +42,7 @@
                       <li><a class="dropdown-item" href="pagAlquilerFiltrar.jsp">Filtrar Alquileres</a></li>
                     </ul>
                   </li>
-                  <a class="nav-link" href="#">Habitaciones</a>
+                  <a class="nav-link" href="pagListarHabitacion.xhtml">Habitaciones</a>
                   <a class="nav-link" href="#">Pagos</a>
                   <a class="nav-link" href="index_admin.jsp">Reportes</a>
                 </div>

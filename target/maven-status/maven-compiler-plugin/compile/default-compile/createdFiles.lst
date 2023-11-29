@@ -2,6 +2,7 @@ modelo\Pago.class
 modelo\PagoDetalle.class
 dao\daoHabitacion.class
 modelo\Servicio.class
+controlador\SrvtlCodigoQR.class
 util\MySQLConexion.class
 modelo\Alquiler.class
 modelo\habitacion.class
@@ -17,9 +18,10 @@ dao\daoEmpleados.class
 modelo\SendEmail$1.class
 modelo\Empleado.class
 dao\daoGrafico.class
+modelo\Validar.class
 modelo\Cliente.class
 modelo\Persona.class
 modelo\SendEmail.class
+controlador\Control.class
 dao\daoAlquiler.class
-controlador\SrvtlGrafico.class
 controlador\SrvltGrafico.class

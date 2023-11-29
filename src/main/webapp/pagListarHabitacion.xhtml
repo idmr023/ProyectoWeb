@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:commandButton value="Adicionar" oncomplete="PF('dgadicion').show()" />
+        </h:form>
+
+        <p:dialog modal="true" widgetVar="dgadicion" width="400" height="400">
+            <h:form id="fr4">
+                <p:panelGrid columns="2">
+
+                    <p:outputLabel value="Tipo" />
+                    <p:selectOneMenu value="#{control.hab.hab_tipo}">
+                        <f:selectItem itemLabel="--Elegir--" />
+                        <f:selectItem itemValue="Simple" itemLabel="Simple" />
+                        <f:selectItem itemValue="Doble" itemLabel="Doble" />
+                        <f:selectItem itemValue="Matrimonial" itemLabel="Matrimonial" />
+                    </p:selectOneMenu>
+
+                    <p:outputLabel value="Estado" />
+                    <p:selectOneMenu value="#{control.hab.hab_estado}">
+                        <f:selectItem itemLabel="--Elegir--" />
+                        <f:selectItem itemValue="Disponible" itemLabel="Disponible" />
+                        <f:selectItem itemValue="No Disponible" itemLabel="No Disponible" />
+                    </p:selectOneMenu>
+
+                </p:panelGrid>
+                <p:commandButton value="Grabar" action="#{control.grabar()}" update=":fr1,:fr4"
+                                 oncomplete="PF('dgadicion').hide()" />
+            </h:form>
+        </p:dialog>
+
+
+        <h2>Listar Habitaciones</h2>
+
+        <h:form id="fr3">
+
+            <p:panelGrid columns="2">
+
+                <p:outputLabel value="Ingrese un Número de Habitacion"/>
+                <p:inputText value="#{control.texto}">
+                    <p:ajax event="keyup" listener="#{control.filtra()}" update=":fr1"/>
+                </p:inputText>
+
+            </p:panelGrid>
+
+        </h:form>
+
+        <h:form id="fr1">
+            <p:dataTable value="#{control.listarHabitaciones}" var="hab" paginator="true" rows="5">
+
+                <p:column headerText="Número">
+                    <p:outputLabel value="#{hab.hab_codigo}"/>
+                </p:column>
+                <p:column headerText="Tipo">
+                    <p:outputLabel value="#{hab.hab_tipo}"/>
+                </p:column>
+                <p:column headerText="Estado">
+                    <p:outputLabel value="#{hab.hab_estado}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+
+    </h:body>
+</html>

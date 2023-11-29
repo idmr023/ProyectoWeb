@@ -56,7 +56,7 @@
                         <select class="form-control" id="id_habitacion" name="cbHabitacion" required>
                             <option disabled selected>Seleccionar</option>
                             <%
-                                for (Habitacion x : hab.listarHabDispo()) {
+                                for (habitacion x : hab.listarHabDispo()) {
                                     if (x.getHab_tipo().equals(tipo)) {
                                         out.print("<option value=" + x.getHab_codigo() + ">" + x.getHab_codigo() + "</option>");
                                     }
