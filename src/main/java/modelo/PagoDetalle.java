@@ -1,6 +1,7 @@
 package modelo;
 
 public class PagoDetalle extends Pago {
+    private String alq_codigo;
     private String paDeta_concepto;
     private int paDeta_dias;
 
@@ -19,4 +20,12 @@ public class PagoDetalle extends Pago {
     public void setPaDeta_dias(int paDeta_dias) {
         this.paDeta_dias = paDeta_dias;
     }    
+
+    public String getAlq_codigo() {
+        return alq_codigo;
+    }
+
+    public void setAlq_codigo(String alq_codigo) {
+        this.alq_codigo = alq_codigo;
+    }
 }

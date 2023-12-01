@@ -43,7 +43,7 @@ public class SrvtlLogin extends HttpServlet {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
             } else{                
-                response.sendRedirect("index.jsp");
+                response.sendRedirect("index_clientes.jsp");
             }
         }
     if(op==2){

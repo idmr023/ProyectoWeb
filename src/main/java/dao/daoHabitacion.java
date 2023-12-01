@@ -164,4 +164,22 @@ public class daoHabitacion {
         }
         return lista;
     }
+    
+    //PARA CONSULTAR EL PRECIO DE UNA HABITACION POR TIPO
+    public double precioHab(String tipo){
+        double precio=0;
+        Connection cn = MySQLConexion.getConexion();
+        try{
+            String sql = "select hab_precio from preciohabitaciones where hab_tipo=?";
+            PreparedStatement st = cn.prepareStatement(sql);
+            st.setString(1, tipo);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                precio = rs.getDouble(1);
+            }
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }        
+        return precio;
+    }
 }

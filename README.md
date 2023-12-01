@@ -1,4 +1,4 @@
-x[![Contributors][contributors-shield]][contributors-url]
+[![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
@@ -79,11 +79,9 @@ git remote add origin (nueva url)
 
 ## Actualizaciones
 
-- Parte de habitaciones agregado
-- Código QR funcional
-- BD actualizada con el nuevo procedure y una modificación en clientes
-- ChatBot de ayuda creado con el motor de ChatGPT.
-- A cada usuario que se agregue se le genera una imagen de acuerdo a sus iniciales (pagListarClientes.html)
+- Proyecto finalizado
+- index.jsp ahora redirecciona a index_clientes.jsp
+- Dentro de index_clientes: imágenes corregidas y título centrado
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge

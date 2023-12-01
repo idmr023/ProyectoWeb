@@ -30,7 +30,7 @@
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Clientes</a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="pag_RegCliente.jsp">Registrar Cliente</a></li>
-                      <li><a class="dropdown-item" href="SrvtlCliente?opc=1">Listar Clientes</a></li>
+                      <li><a class="dropdown-item" href="pag_ListCliente.jsp">Listar Clientes</a></li>
                       <li><a class="dropdown-item" href="pag_FiltraCliente.jsp">Filtrar Clientes</a></li>
                     </ul>
                   </li>
@@ -43,7 +43,7 @@
                     </ul>
                   </li>
                   <a class="nav-link" href="pagListarHabitacion.xhtml">Habitaciones</a>
-                  <a class="nav-link" href="#">Pagos</a>
+                  <a class="nav-link" href="pagPagos.xhtml">Pagos</a>
                   <a class="nav-link" href="index_admin.jsp">Reportes</a>
                 </div>
               </div>

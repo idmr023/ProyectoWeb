@@ -39,8 +39,9 @@
                             <th scope="col">Sexo</th>
                             <th scope="col">Celular</th>
                             <th scope="col">Foto de perfil</th>
+                            <th scope="col">QR</th>
                             <th scope="col">Editar</th>
-                            <th scope="col">Modificar</th>
+                            <th scope="col">Eliminar</th>
 
                         </tr>
                     </thead>

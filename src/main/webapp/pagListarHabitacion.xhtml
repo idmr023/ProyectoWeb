@@ -6,7 +6,8 @@
       xmlns:p="http://primefaces.org/ui"
       >
     <h:head>
-        <title>Facelet Title</title>
+        <title>Facelet Title</title>        
+        <link href="css/estilos_generales.css" rel="stylesheet" type="text/css"/>
     </h:head>
     <h:body>
         <h:form>
@@ -33,7 +34,7 @@
                     </p:selectOneMenu>
 
                 </p:panelGrid>
-                <p:commandButton value="Grabar" action="#{control.grabar()}" update=":fr1,:fr4"
+                <p:commandButton value="Grabar" action="#{control.grabar()}" update=":fr1"
                                  oncomplete="PF('dgadicion').hide()" />
             </h:form>
         </p:dialog>

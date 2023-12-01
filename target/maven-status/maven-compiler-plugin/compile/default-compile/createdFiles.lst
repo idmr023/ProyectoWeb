@@ -21,7 +21,8 @@ dao\daoGrafico.class
 modelo\Validar.class
 modelo\Cliente.class
 modelo\Persona.class
+controlador\controlPagos.class
 modelo\SendEmail.class
-controlador\Control.class
 dao\daoAlquiler.class
+controlador\control.class
 controlador\SrvltGrafico.class

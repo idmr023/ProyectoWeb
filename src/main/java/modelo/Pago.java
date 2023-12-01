@@ -1,8 +1,9 @@
 package modelo;
 
-public class Pago extends Alquiler {
+public class Pago {
     private String pa_codigo;
     private String pa_fecha;
+    private String cli_dni;
     private double pa_total;
 
     public String getPa_codigo() {
@@ -27,6 +28,14 @@ public class Pago extends Alquiler {
 
     public void setPa_total(double pa_total) {
         this.pa_total = pa_total;
+    }
+
+    public String getCli_dni() {
+        return cli_dni;
+    }
+
+    public void setCli_dni(String cli_dni) {
+        this.cli_dni = cli_dni;
     }
     
 }

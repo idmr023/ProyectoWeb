@@ -6,7 +6,6 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
-        <link rel="stylesheet" href="css/style.css">
         <link rel="stylesheet" href="css/estilos_generales.css">
         <title>Página principal</title>
         
@@ -16,15 +15,9 @@
     <%@ include file="./layout/menu.jsp" %>
     
     <body>
-        <section class="banner">
+        <section class="banner_clientes">
             <div class="banner__texto">
                 <h1>Hotel Antares</h1>
-                <p>Este hotel te ofrece las mejores habitaciones y suites</p>
-                <div class="btn-group" role="group" aria-label="Basic mixed styles example">
-                    <button class="banner__botones-login btn btn-primary">Login</button>
-                    <button type="button" class="btn btn-success">A</button>
-                    <button class="banner__botones-register btn btn-primary">Register</button>
-                  </div>
             </div>
         </section>
         <br>
@@ -60,14 +53,9 @@
             <div class="col-md-8">
               <div class="card-body">
                 <h5 class="card-title">Nuestras habitaciones</h5>
-                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni est veritatis nihil sed error qui hic 
-                  recusandae cumque rerum unde delectus asperiores natus nulla velit, quibusdam tenetur repellendus
-                  quod eaque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo, natus consequuntur
-                  esse molestias rerum error porro nisi, libero dolor tempora sed sequi soluta ratione impedit enim.
-                  Quae quaerat veritatis molestias.<br>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni est veritatis nihil sed error qui hic
-                  recusandae cumque rerum unde delectus asperiores natus nulla velit, quibusdam tenetur repellendus
-                  quod eaque.</p>
-                <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                <p class="card-text">Equipadas con comodidades modernas y mobiliario elegante, estas habitaciones brindan un hogar lejos del hogar. 
+                    Además de las características estándar, como camas cómodas y baños bien equipados, las habitaciones cuentan con áreas de estar adicionales y facilidades para 
+                    una estancia prolongada, como kitchenette o cocinas totalmente equipadas, ideales para aquellos que buscan comodidad y flexibilidad durante su tiempo en el hotel.</p>
                 </div>
               </div>
                 
@@ -79,16 +67,12 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="img/servicios_wifi.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="https://img.freepik.com/vector-premium/icono-wi-fi-icono-senal-wifi-senal-conexion-inalambrica-internet-ilustracion-vectorial-aislada-sobre-fondo-blanco_192280-968.jpg" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">Wifi</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                    ago</small></p>
+                            <p class="card-text">El hotel ofrece limpieza diaria de habitaciones y áreas comunes para mantener un ambiente ordenado y confortable.</p>
                         </div>
                     </div>
                 </div>
@@ -97,16 +81,12 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="img/servicios_atencion.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="https://t3.ftcdn.net/jpg/04/09/66/34/360_F_409663489_ZFDzdvS40JPGoqJKvokd2CWyKB4mErzd.jpg" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">Atencion 24h</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                    ago</small></p>
+                            <p class="card-text">El equipo de atención al cliente está disponible las 24 horas para responder consultas, resolver problemas y brindar asistencia a los huéspedes en cualquier momento del día o la noche.</p>
                         </div>
                     </div>
                 </div>
@@ -115,16 +95,12 @@
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="img/servicios_limpieza.jpg" class="img-fluid rounded-start" alt="...">
+                        <img src="https://static.vecteezy.com/system/resources/previews/013/259/505/non_2x/cleaning-products-icon-design-free-vector.jpg" class="img-fluid rounded-start" alt="...">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
                             <h5 class="card-title">Limpieza </h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural
-                                lead-in to
-                                additional content. This content is a little bit longer.</p>
-                            <p class="card-text"><small class="text-body-secondary">Last updated 3 mins
-                                    ago</small></p>
+                            <p class="card-text"> Con acceso wifi gratuito en todas las áreas, los huéspedes pueden disfrutar de una conexión de alta velocidad para trabajar, navegar y mantenerse conectados durante su estancia en el hotel.</p>
                         </div>
                     </div>
                 </div>

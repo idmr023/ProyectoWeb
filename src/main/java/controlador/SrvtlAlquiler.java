@@ -1,9 +1,7 @@
 package controlador;
 
 import com.google.gson.Gson;
-import dao.daoAlquiler;
-import dao.daoCliente;
-import dao.daoHabitacion;
+import dao.*;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,15 +9,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import modelo.Alquiler;
-import modelo.Cliente;
-
+import modelo.*;
+import rutinas.*;
 public class SrvtlAlquiler extends HttpServlet {
 
     daoAlquiler dAlq = new daoAlquiler();
     daoHabitacion dHab = new daoHabitacion();
-    
     daoCliente dCli = new daoCliente(); 
+    daoPagos dPag = new daoPagos();
     
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -52,14 +49,15 @@ public class SrvtlAlquiler extends HttpServlet {
         a.setAlq_fechaSalida(salida);
         a.setEmp_codigo(empleado);
         String nuevoAlq = dAlq.agregarAlq(a);
-        Cliente c = new Cliente();
         Cliente busCli = dCli.buscarCli(dni);
         if(busCli==null){
+            Cliente c = new Cliente();
             c.setCli_dni(dni);
             c.setApellido(apellido);
             c.setNombre(nombre);
             c.setSexo(sexo);
             c.setCelular(celular);
+            c.setUrl_foto("https://ui-avatars.com/api/?name=" + request.getParameter("nombre"));
             dCli.agregarCli(c);
         }
         request.setAttribute("nuevoAlq", nuevoAlq);
@@ -105,8 +103,23 @@ public class SrvtlAlquiler extends HttpServlet {
         dAlq.modificarAlq(salidaMod, estadoMod, codigoMod);
         if (estadoMod.equals("Finalizado")){
             dHab.liberarHab(habitacionMod);
-        }        
-        listarAlq(request, response);
+            Alquiler alq = new daoAlquiler().buscarAlqCod(codigoMod);
+            PagoDetalle pd = new PagoDetalle();
+            pd.setAlq_codigo(alq.getAlq_codigo());
+            pd.setCli_dni(alq.getCli_dni());
+            int cantDias = (int)rutinas.Fechas.difFecha(alq.getAlq_fechaIngreso(), alq.getAlq_fechaSalida());
+            double total = cantDias * dHab.precioHab(alq.getHab_tipo());
+            pd.setPa_total(total);
+            pd.setPaDeta_concepto("Habitacion " + alq.getHab_tipo());
+            pd.setPaDeta_dias(cantDias);
+            dPag.agregarPago(pd);
+            String pag = "/pagPagos.xhtml";
+            request.getRequestDispatcher(pag).forward(request, response);
+        }
+        else {
+            listarAlq(request, response);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

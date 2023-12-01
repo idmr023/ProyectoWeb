@@ -1,0 +1,82 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta charset="UTF-8"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <title>HT - Pagos</title>
+        <link href="css/estilos_generales.css" rel="stylesheet" type="text/css"/>
+    </h:head>
+    <h:body>
+        
+        <center>
+            <h2>Listado de Pagos</h2>
+            <!-- FORMULARIO 4 BUSQUEDA POR APELLIDO -->
+            <h:form id="fr4">
+                <p:panelGrid columns="2">   
+                    <p:outputLabel value="Filtrar por Apellido"/>
+                    <p:inputText value="#{controlPagos.texto}">
+                        <p:ajax event="keyup" listener="#{controlPagos.filtrarClientes()}" update=":fr1"/>
+                    </p:inputText>
+                </p:panelGrid>
+            </h:form>            
+            <!-- Lista de Clientes -->
+            <h:form id="fr1">
+                <p:dataTable value="#{controlPagos.lisCli}" var="cli" paginator="true" rows="5">
+                    <p:column headerText="DNI">
+                        <p:outputLabel value="#{cli.cli_dni}"/>
+                    </p:column>
+                    <p:column headerText="Apellido">
+                        <p:outputLabel value="#{cli.apellido}"/>
+                    </p:column>
+                    <p:column headerText="Nombre">
+                        <p:outputLabel value="#{cli.nombre}"/>
+                    </p:column>
+                    <p:column headerText="Pagos">
+                        <p:commandLink value="Ver" actionListener="#{controlPagos.consultarPagos(cli)}" update=":fr2"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+            <!-- Lista de Pagos del Cliente -->
+            <h:form id="fr2">
+                <p:panelGrid columns="1"> 
+                    <h:outputLabel value="Cliente: #{controlPagos.nombre}"/>
+                </p:panelGrid>
+                <p:dataTable value="#{controlPagos.lisPag}" var="pag">
+                    <p:column headerText="Código de Pago">
+                        <p:outputLabel value="#{pag.pa_codigo}"/>
+                    </p:column>
+                    <p:column headerText="Fecha">
+                        <p:outputLabel value="#{pag.pa_fecha}"/>
+                    </p:column>
+                    <p:column headerText="Total">
+                        <p:outputLabel value="#{pag.pa_total}"/>
+                    </p:column>
+                    <p:column headerText="Detalles">
+                        <p:commandLink value="Ver" actionListener="#{controlPagos.consultaDetalle(pag)}" update=":fr3"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+            <!-- Detalle de factura selecionada -->
+            <h:form id="fr3">
+                <p:panelGrid columns="1">
+                    <h:outputLabel value="Pago #: #{controlPagos.pago}"/>
+                </p:panelGrid>    
+                <p:dataTable value="#{controlPagos.lisDeta}" var="deta">
+                    <p:column headerText="Código de Alquiler">
+                        <p:outputLabel value="#{deta.alq_codigo}"/>
+                    </p:column>
+                    <p:column headerText="Concepto">
+                        <p:outputLabel value="#{deta.paDeta_concepto}"/>
+                    </p:column>
+                    <p:column headerText="Cantidad de Días">
+                        <p:outputLabel value="#{deta.paDeta_dias}"/>
+                    </p:column>
+                </p:dataTable>
+            </h:form>
+        </center>
+    </h:body>
+</html>

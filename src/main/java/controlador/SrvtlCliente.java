@@ -28,14 +28,15 @@ public class SrvtlCliente extends HttpServlet {
     protected void agregarCli(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
-        String clientName = dCli.nom_cli(request.getParameter("nombre"));
-        String avatarUrl = "https://ui-avatars.com/api/?name=" + clientName;
+        //String clientName = dCli.nom_cli(request.getParameter("nombre"));
+        
         
         c.setCli_dni(request.getParameter("dni"));
         c.setApellido(request.getParameter("apellido"));
         c.setNombre(request.getParameter("nombre"));
         c.setSexo(request.getParameter("genero"));
         c.setCelular(request.getParameter("celular"));
+        String avatarUrl = "https://ui-avatars.com/api/?name=" + request.getParameter("nombre");
         c.setUrl_foto(avatarUrl);
         
         dCli.agregarCli(c);
@@ -70,7 +71,7 @@ public class SrvtlCliente extends HttpServlet {
         c.setCli_dni(request.getParameter("dni"));
         c.setApellido(request.getParameter("apellido"));
         c.setNombre(request.getParameter("nombre"));
-        c.setSexo(request.getParameter("genero"));
+        c.setSexo(request.getParameter("cbSexo"));
         c.setCelular(request.getParameter("celular"));
         dCli.modificarCli(c);
 

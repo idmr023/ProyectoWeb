@@ -27,14 +27,14 @@ create table clientes(
     );
     
 insert into clientes values('17458522', 'Rios', 'Janet', 'F', '952487587', 'https://ui-avatars.com/api/?name=Janet');
-insert into clientes values('17654785', 'Lizarraga', 'Alejandra', 'F', '914789852', '');
-insert into clientes values('18547475', 'Lopez', 'Diana', 'F', '987885745', '');
-insert into clientes values('60457845', 'Perez', 'Ernesto', 'M', '925478855', '');
-insert into clientes values('65898589', 'Hurtado', 'Maria', 'F', '987180625', '');
-insert into clientes values('68957845', 'Velasquez', 'Israel', 'M', '988741589', '');
-insert into clientes values('70510917', 'Chaname' , 'Renato', 'M', '980523566', '');
-insert into clientes values('70510918', 'Chaname' , 'Cristhian', 'M', '900621989', '');
-insert into clientes values('74589685', 'Vasquez' , 'Jhayr', 'M', '990852745', '');
+insert into clientes values('17654785', 'Lizarraga', 'Alejandra', 'F', '914789852', 'https://ui-avatars.com/api/?name=Alejandra');
+insert into clientes values('18547475', 'Lopez', 'Diana', 'F', '987885745', 'https://ui-avatars.com/api/?name=Diana');
+insert into clientes values('60457845', 'Perez', 'Ernesto', 'M', '925478855', 'https://ui-avatars.com/api/?name=Ernesto');
+insert into clientes values('65898589', 'Hurtado', 'Maria', 'F', '987180625', 'https://ui-avatars.com/api/?name=Maria');
+insert into clientes values('68957845', 'Velasquez', 'Israel', 'M', '988741589', 'https://ui-avatars.com/api/?name=Israel');
+insert into clientes values('70510917', 'Chaname' , 'Renato', 'M', '980523566', 'https://ui-avatars.com/api/?name=Renato');
+insert into clientes values('70510918', 'Chaname' , 'Cristhian', 'M', '900621989', 'https://ui-avatars.com/api/?name=Cristhian');
+insert into clientes values('74589685', 'Vasquez' , 'Jhayr', 'M', '990852745', 'https://ui-avatars.com/api/?name=Jhayr');
 
 create table habitaciones(
     hab_codigo char(4) not null primary key,
@@ -127,52 +127,39 @@ insert into alquilerServicio values('A00012', 'S002', 'Alimentacion', '2023-03-0
 create table pagos(
     pa_codigo char(6) not null primary key,
     pa_fecha date,
-    alq_codigo char(6),
     cli_dni char(8),
     pa_total double);
     
-insert into pagos values('P00001', '2022-12-31', 'A00002', '17654785', 150);
-insert into pagos values('P00002', '2023-01-11', 'A00001', '68957845', 540);
-insert into pagos values('P00003', '2023-02-05', 'A00003', '65898589', 180);
-insert into pagos values('P00004', '2023-02-22', 'A00004', '70510918', 330);
-insert into pagos values('P00005', '2023-03-01', 'A00005',  '70510917', 30);
-insert into pagos values('P00006', '2023-03-02', 'A00006', '65898589', 60);
-insert into pagos values('P00007', '2023-03-02', 'A00007', '74589685', 120);
-insert into pagos values('P00008', '2023-03-02', 'A00008', '18547475', 45);
-insert into pagos values('P00009', '2023-03-06', 'A00009', '68957845', 135);
-insert into pagos values('P00010', '2023-03-06', 'A00012', '17654785', 280);
-insert into pagos values('P00011', '2023-03-07', 'A00010', '60457845', 620);
-insert into pagos values('P00012', '2023-03-08', 'A00011', '17458522', 180);
+insert into pagos values('P00001', '2022-12-31', '17654785', 150);
+insert into pagos values('P00002', '2023-01-11', '68957845', 540);
+insert into pagos values('P00003', '2023-02-05', '65898589', 180);
+insert into pagos values('P00004', '2023-02-22', '70510918', 330);
+insert into pagos values('P00005', '2023-03-01', '70510917', 30);
+insert into pagos values('P00006', '2023-03-02', '65898589', 60);
+insert into pagos values('P00007', '2023-03-02', '74589685', 120);
+insert into pagos values('P00008', '2023-03-02', '18547475', 45);
+insert into pagos values('P00009', '2023-03-06', '68957845', 135);
+insert into pagos values('P00010', '2023-03-06', '17654785', 280);
+insert into pagos values('P00011', '2023-03-07', '60457845', 620);
+insert into pagos values('P00012', '2023-03-08', '17458522', 180);
 
 create table pagoDetalle(
-    pa_codigo char(6),
+    pa_codigo char(6) not null primary key,
     alq_codigo char(6),
     paDeta_concepto varchar(30),
     paDeta_dias int);
 
 insert into pagoDetalle values('P00001', 'A00002', 'Habitacion Simple', 5);
 insert into pagoDetalle values('P00002', 'A00001', 'Habitacion Matrimonial', 4);
-insert into pagoDetalle values('P00002', 'A00001', 'Lavanderia', 4);
-insert into pagoDetalle values('P00002', 'A00001', 'Alimentacion', 4);
 insert into pagoDetalle values('P00003', 'A00003', 'Habitacion Doble', 4);
 insert into pagoDetalle values('P00004', 'A00004', 'Habitacion Simple', 3);
-insert into pagoDetalle values('P00004', 'A00004', 'Lavanderia', 3);
-insert into pagoDetalle values('P00004', 'A00004', 'Estacionamiento', 3);
-insert into pagoDetalle values('P00004', 'A00004', 'Gimnasio', 3);
 insert into pagoDetalle values('P00005', 'A00005', 'Habitacion Simple', 1);
 insert into pagoDetalle values('P00006', 'A00006', 'Habitacion Simple', 2);
 insert into pagoDetalle values('P00007', 'A00007', 'Habitacion Matrimonial', 1);
-insert into pagoDetalle values('P00007', 'A00007', 'Spa', 1);
 insert into pagoDetalle values('P00008', 'A00008', 'Habitacion Doble', 1);
 insert into pagoDetalle values('P00009', 'A00009', 'Habitacion Doble', 3);
 insert into pagoDetalle values('P00010', 'A00012', 'Habitacion Matrimonial', 2);
-insert into pagoDetalle values('P00010', 'A00012', 'Estacionamiento', 2);
-insert into pagoDetalle values('P00010', 'A00012', 'Alimentacion', 2);
 insert into pagoDetalle values('P00011', 'A00010', 'Habitacion Matrimonial', 4);
-insert into pagoDetalle values('P00011', 'A00010', 'Lavanderia', 4);
-insert into pagoDetalle values('P00011', 'A00010', 'Estacionamiento', 4);
-insert into pagoDetalle values('P00011', 'A00010', 'Gimnasio', 4);
-insert into pagoDetalle values('P00011', 'A00010', 'Spa', 1);
 insert into pagoDetalle values('P00012', 'A00011', 'Habitacion Doble', 4);
 
 
@@ -203,23 +190,23 @@ declare cuenta int;
 declare hab char(4);
 select right(max(hab_codigo),3)+1 into cuenta from habitaciones;
 set hab=concat('H',LPAD(cuenta, 3, '0'));
-insert into habitaciones (hab_codigo, hab_tipo, hab_estado)
-values(hab,tipo,estado);
+insert into habitaciones values(hab, tipo, estado);
 select hab;
-end
+end @@
 DELIMITER ;    
 
 //PROCEDIMIENTO PARA AGREGAR UN NUEVO PAGO
 DELIMITER @@
 DROP PROCEDURE if exists paAgregar @@
 CREATE PROCEDURE bdhotelantares.paAgregar
-(codAlq char(6), dni char(8), total double)
+(codAlq char(6), dni char(8), total double, concepto varchar(30), dias int(11))
 begin
 declare cuenta int;
 declare pa char(6);
 select right(max(pa_codigo),5)+1 into cuenta from pagos;
 set pa=concat('P',Lpad(cuenta,5,'0'));
-insert into pagos values(pa,curdate(),codAlq,dni,total);
+insert into pagos values(pa,curdate(),dni,total);
+insert into pagodetalle values(pa,codAlq,concepto,dias);
 select pa;
 end @@ 
 DELIMITER ;   

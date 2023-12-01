@@ -19,6 +19,7 @@
     font-size: 50px;
     padding-left: 20px;
     letter-spacing: 2px;
+    color: #000;
 }
 .content span{
     color: var(--black);

@@ -15,10 +15,10 @@
     <body>
         <div class="content">
             <div>
-                <h1>Hotel antares </h1>
-                <p class="par">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt neque 
-                expedita atque eveniet <br> quis nesciunt. Quos nulla vero consequuntur, fugit nemo ad delectus 
-                <br> a quae totam ipsa illum minus laudantium?</p>
+                <h1>SDG - Hotel antares </h1>
+                <p class="par">Sistema de control y gestión del Hotel Antares. En la presente página web se pueden listar, editar y eliminar los clientes. De igual forma se puede 
+                visualizar las ganancias por mes, las habitaciones registradas y los usuarios que están en ella, entre otros. Inicie sesión con sus credenciales para poder hacer
+                uso de estas funciones.</p>
             </div>
 
             <div class="form-container">

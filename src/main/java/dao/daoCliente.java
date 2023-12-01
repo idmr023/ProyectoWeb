@@ -11,6 +11,7 @@ import util.MySQLConexion;
 
 public class daoCliente {
     
+    //INNECESARIO - NO TIENE SENTIDO
     public String nom_cli(String nombre) {
         String c = null;
         Connection cn = MySQLConexion.getConexion();
@@ -173,6 +174,30 @@ public class daoCliente {
         List<Cliente> lis = new ArrayList<>();
         try (Connection cn = MySQLConexion.getConexion(); PreparedStatement st = cn.prepareStatement("SELECT cli_dni, cli_apellido, cli_nombre, cli_sexo, cli_celular FROM clientes WHERE cli_dni LIKE ?");) {
             st.setString(1, id + "%");
+            try (ResultSet rs = st.executeQuery()) {
+                while (rs.next()) {
+                    Cliente c = new Cliente();
+                    c.setCli_dni(rs.getString(1));
+                    c.setApellido(rs.getString(2));
+                    c.setNombre(rs.getString(3));
+                    c.setSexo(rs.getString(4));
+                    c.setCelular(rs.getString(5));
+
+                    lis.add(c);
+                }
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            // Considera manejar la excepción de una manera más apropiada aquí
+        }
+        return lis;
+    }
+    
+    //PARA FILTRAR POR APELLIDO DE  CLIENTE
+    public List<Cliente> flitrarCliApe(String ape) {
+        List<Cliente> lis = new ArrayList<>();
+        try (Connection cn = MySQLConexion.getConexion(); PreparedStatement st = cn.prepareStatement("SELECT * FROM clientes WHERE cli_apellido LIKE ?");) {
+            st.setString(1, ape + "%");
             try (ResultSet rs = st.executeQuery()) {
                 while (rs.next()) {
                     Cliente c = new Cliente();

@@ -1,12 +1,7 @@
 package controlador;
 
-import java.io.IOException;
-import javax.servlet.ServletException;
-import javax.servlet.http.*;
 import modelo.*;
 import dao.*;
-
-//xhtml
 import javax.faces.bean.*;
 import java.io.Serializable;
 import java.util.List;
@@ -15,7 +10,7 @@ import javax.annotation.PostConstruct;
 @ManagedBean
 @ViewScoped
 
-public class Control extends HttpServlet implements Serializable {
+public class control implements Serializable {
     
     private daoHabitacion obj = new daoHabitacion();  
     
@@ -33,9 +28,8 @@ public class Control extends HttpServlet implements Serializable {
     }
 
     public void grabar() {
-
-        new daoHabitacion().agregarHab(hab);
-        listarHabitaciones = new daoHabitacion().listarHab();
+        String habNuevo = new daoHabitacion().agregarHab(hab);
+        listarHabitaciones = new daoHabitacion().listarHab();        
         hab = new habitacion();
     }
 
@@ -43,46 +37,10 @@ public class Control extends HttpServlet implements Serializable {
         listarHabitaciones = new daoHabitacion().filtraHabitacion(texto);
     }
 
-    public Control() {
+    public control() {
         texto = "";
+        hab = new habitacion();
     }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
 
     public daoHabitacion getObj() {
         return obj;
