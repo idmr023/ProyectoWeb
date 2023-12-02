@@ -80,8 +80,7 @@ git remote add origin (nueva url)
 ## Actualizaciones
 
 - Proyecto finalizado
-- index.jsp ahora redirecciona a index_clientes.jsp
-- Dentro de index_clientes: imágenes corregidas y título centrado
+- Redireccionamiento corregido, localhost::8080 eliminado
 
 <!-- MARKDOWN LINKS & IMAGES -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge

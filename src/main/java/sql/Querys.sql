@@ -164,6 +164,7 @@ insert into pagoDetalle values('P00012', 'A00011', 'Habitacion Doble', 4);
 
 
 ================================================================================
+
 //PROCEDIMIENTO PARA AGREGAR UN NUEVO ALQUILER
 DELIMITER @@
 DROP PROCEDURE if exists alqAgregar @@

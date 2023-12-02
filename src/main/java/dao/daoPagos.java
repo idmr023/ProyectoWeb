@@ -82,4 +82,23 @@ public class daoPagos {
         }        
         return pa;
     }
+    
+    //PARA LISTAR LOS PAGOS EN EL PRESENTE AÑO
+    public List<Pago> lisPagAn() {
+        List<Pago> lista = new ArrayList();
+        Connection cn = MySQLConexion.getConexion();
+        String sql = "select sum(pa_total) from pagos where year(pa_fecha)='2023'";
+        try {
+            PreparedStatement st = cn.prepareStatement(sql);
+            ResultSet rs = st.executeQuery();
+            while (rs.next()) {
+                Pago p = new Pago();
+                p.setPa_total(Double.parseDouble(rs.getString(1)));
+                lista.add(p);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return lista;
+    }
 }

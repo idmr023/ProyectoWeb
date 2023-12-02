@@ -149,7 +149,7 @@ public class daoHabitacion {
         String sql = "select hab_codigo, hab_tipo,hab_estado from habitaciones where hab_codigo like ?";
         try {
             PreparedStatement st = MySQLConexion.getConexion().prepareStatement(sql);
-            st.setString(1, cad + "%");
+            st.setString(1, "%"+ cad + "%");
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 habitacion h = new habitacion(

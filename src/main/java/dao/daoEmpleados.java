@@ -49,11 +49,11 @@ public class daoEmpleados implements SE_Validar{
                 emp.setEmp_correo(rs.getString("emp_correo"));
                 emp.setPswd(rs.getString("emp_pswd"));
             }
-
+            System.out.println("el valor de r es: "+r);
             if (r == 1) return 1;
             else return 0;
         } catch (SQLException ex) {
-            return 0;
+            return r;
         }
 
     }

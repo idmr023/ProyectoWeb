@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 @ManagedBean
 @ViewScoped
 
-public class control implements Serializable {
+public class Control implements Serializable {
     
     private daoHabitacion obj = new daoHabitacion();  
     
@@ -37,7 +37,7 @@ public class control implements Serializable {
         listarHabitaciones = new daoHabitacion().filtraHabitacion(texto);
     }
 
-    public control() {
+    public Control() {
         texto = "";
         hab = new habitacion();
     }

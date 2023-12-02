@@ -7,7 +7,19 @@ public class habitacion {
     private String hab_estado;
     private int mes;
     private double total;
+    private double simple;
+    private double doble;
+    private double matrimonial;
 
+    public habitacion(double hab_precio, double simple, double doble, double matrimonial) {
+        this.hab_precio = hab_precio;
+        this.simple = simple;
+        this.doble = doble;
+        this.matrimonial = matrimonial;
+    }
+    
+    
+    
     public habitacion() {
     }
 
@@ -69,6 +81,30 @@ public class habitacion {
 
     public void setTotal(double total) {
         this.total = total;
+    }
+
+    public double getSimple() {
+        return simple;
+    }
+
+    public void setSimple(double simple) {
+        this.simple = simple;
+    }
+
+    public double getDoble() {
+        return doble;
+    }
+
+    public void setDoble(double doble) {
+        this.doble = doble;
+    }
+
+    public double getMatrimonial() {
+        return matrimonial;
+    }
+
+    public void setMatrimonial(double matrimonial) {
+        this.matrimonial = matrimonial;
     }
        
 }
